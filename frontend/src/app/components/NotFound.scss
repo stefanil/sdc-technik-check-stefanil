@@ -1,0 +1,23 @@
+@import "../../stylesheets/variables.scss";
+
+.not-found {
+  h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+    font-family: $headline-font-family;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .not-found-back-button {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem;
+    background: white center;
+    border-radius: $interactive-element-height;
+    width: $interactive-element-height;
+    height: $interactive-element-height;
+    cursor: pointer;
+  }
+}

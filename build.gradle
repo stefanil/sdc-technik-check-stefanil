@@ -1,0 +1,13 @@
+allprojects { allproject ->
+
+  group 'org.devel.sdc-technik-check-stefanil'
+  version '0.0.1-SNAPSHOT'
+
+  apply plugin: 'base'
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+  }
+}

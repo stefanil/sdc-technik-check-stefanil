@@ -1,0 +1,38 @@
+plugins {
+  id 'java'
+  id 'com.moowork.node' version '1.2.0' apply true
+}
+
+node {
+  version = '8.9.1'
+  download = true
+}
+
+task installWindowsBuildTools(type: NpmTask) {
+  args = ['install', '--global', '--production', 'windows-build-tools']
+}
+
+task rebuildNodeSass(type: NpmTask) {
+  args = ['rebuild', 'node-sass']
+}
+
+task npmBuild(type: NpmTask) {
+  args = ['run', 'build']
+}
+
+task buildApplication(type: NpmTask, dependsOn: npmInstall) {
+  args = ['run', 'build']
+}
+
+/* ######### TEST ######### */
+
+task runTest(type: NpmTask) {
+  args = ['test']
+}
+
+task unit(type: Test, description: 'Runs the units tests for frontend module.', group: 'Verification') {
+  dependsOn npmInstall, ':frontend:npm_rebuild', runTest
+  tasks.findByPath(':frontend:npm_rebuild').mustRunAfter npmInstall
+  runTest.mustRunAfter tasks.findByPath(':frontend:npm_rebuild')
+}
+test.finalizedBy unit
