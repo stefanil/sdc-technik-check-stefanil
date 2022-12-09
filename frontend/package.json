@@ -121,7 +121,7 @@
     "numeral": "2.0.6",
     "postal": "2.0.5",
     "prop-types": "15.7.2",
-    "qs": "6.5.2",
+    "qs": "6.5.3",
     "re-reselect": "1.0.1",
     "react": "16.8.2",
     "react-chartjs-2": "2.7.4",
